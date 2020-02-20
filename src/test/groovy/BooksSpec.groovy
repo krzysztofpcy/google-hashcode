@@ -7,6 +7,7 @@ class BooksSpec extends AlgorithmSpec {
             loadTest('b_read_on.txt'),
             loadTest('c_incunabula.txt'),
             loadTest('d_tough_choices.txt'),
+            loadTest('e_so_many_books.txt'),
             loadTest('f_libraries_of_the_world.txt')
     ]
 
@@ -27,11 +28,12 @@ class BooksSpec extends AlgorithmSpec {
 
         where:
             data            | algorithm     | filename
-            testData[0]     | algorithms[0] | 'a_result_example.txt'
-            testData[1]     | algorithms[0] | 'b_result_read_on.txt'
-            testData[2]     | algorithms[0] | 'c_result_incunabula.txt'
-            testData[3]     | algorithms[0] | 'd_result_tough_choices.txt'
-            testData[4]     | algorithms[0] | 'f_result_libraries_of_the_world.txt'
+            testData[0]     | algorithms[2] | 'a_result_example.txt'
+            testData[1]     | algorithms[2] | 'b_result_read_on.txt'
+            testData[2]     | algorithms[2] | 'c_result_incunabula.txt'
+            testData[3]     | algorithms[2] | 'd_result_tough_choices.txt'
+            testData[4]     | algorithms[2] | 'e_result_so_many_books.txt'
+            testData[5]     | algorithms[2] | 'f_result_libraries_of_the_world.txt'
 //            testData[0]     | algorithms[0]
 //            testData[0]     | algorithms[1]
 //            testData[0]     | algorithms[2]

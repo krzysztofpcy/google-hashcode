@@ -15,7 +15,7 @@ class Library {
     }
     
     int score(days) {
-        int daysToScore = booksPerDay * Math.max(1, (days / 10) as int) as int
+        int daysToScore = booksPerDay * Math.max(1, (days / 5) as int) as int
         int booksScore = books.subList(0, Math.min(books.size(), daysToScore)).sum { it.score } as int
         return booksScore / signupDays
     }
