@@ -44,12 +44,13 @@ class AlgorithmSpec extends Specification {
         int currentDay = 0;
 
         libraries.each {
-            currentDay += it.signupDays + 1
+            currentDay += it.signupDays
 
             if (currentDay <= input.days) {
                 int daysToScan = input.days - currentDay
+                int booksToScan = daysToScan * it.booksPerDay
 
-                scannedBooks.addAll(it.books.subList(0, daysToScan));
+                scannedBooks.addAll(it.books.subList(0, Math.min(booksToScan, it.books.size())))
             }
         }
 
