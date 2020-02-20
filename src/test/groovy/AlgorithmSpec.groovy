@@ -44,13 +44,13 @@ class AlgorithmSpec extends Specification {
         Set<Book> scannedBooks = [] as Set
         int currentDay = 0;
 
-        File file = new File(filename)
-        file.write(libraries.size() + "\n")
-
+        String result = ""
+        int counter = 0
         libraries.each {
             currentDay += it.signupDays
 
             if (currentDay <= input.days) {
+                counter++
                 int daysToScan = input.days - currentDay
                 int booksToScan = daysToScan * it.booksPerDay
 
@@ -60,9 +60,12 @@ class AlgorithmSpec extends Specification {
 
                 List<Book> books = it.books.subList(0, Math.min(booksToScan, it.books.size()))
                 scannedBooks.addAll(books)
-                file << saveResultsToFile(it, books.size(), books)
+                result += saveResultsToFile(it, books.size(), books)
             }
         }
+        File file = new File(filename)
+        file.write(counter + "\n")
+        file << result
 
         return scannedBooks.stream().mapToInt(it -> it.score).sum()
     }
