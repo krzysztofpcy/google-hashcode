@@ -8,7 +8,7 @@ class BooksSpec extends AlgorithmSpec {
     ]
 
     static def algorithms = [
-            new AlgorithmA()
+            new AlgorithmB()
     ]
 
     @Unroll
