@@ -50,6 +50,10 @@ class AlgorithmSpec extends Specification {
                 int daysToScan = input.days - currentDay
                 int booksToScan = daysToScan * it.booksPerDay
 
+                if (booksToScan < 0) {
+                    booksToScan = Integer.MAX_VALUE
+                }
+
                 scannedBooks.addAll(it.books.subList(0, Math.min(booksToScan, it.books.size())))
             }
         }
