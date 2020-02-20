@@ -3,7 +3,8 @@ import spock.lang.Unroll
 class BooksSpec extends AlgorithmSpec {
 
     static def testData = [
-            loadTest('a_example.txt')
+//            loadTest('a_example.txt'),
+            loadTest('c_incunabula.txt')
     ]
 
     static def algorithms = [
