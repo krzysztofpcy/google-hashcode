@@ -16,12 +16,12 @@ class AlgorithmC implements Algorithm {
     }
     
     class SimpleComparator implements Comparator<Library> {
-    
+        
         int days
         
         @Override
         int compare(Library a, Library b) {
-            return Integer.compare(b.score(days), b.score(days))
+            return Integer.compare(b.score(days), a.score(days))
         }
     }
     
