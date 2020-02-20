@@ -60,7 +60,7 @@ class AlgorithmSpec extends Specification {
 
                 List<Book> books = it.books.subList(0, Math.min(booksToScan, it.books.size()))
                 scannedBooks.addAll(books)
-                file << saveResultsToFile(it, it.books.size(), books)
+                file << saveResultsToFile(it, books.size(), books)
             }
         }
 
