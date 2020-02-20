@@ -1,11 +1,13 @@
 class Library {
-    
+
+    int id
     int signupDays
     int booksPerDay
     List<Book> books
     
     Library sorted() {
         new Library(
+                id: id,
                 signupDays: signupDays,
                 booksPerDay: booksPerDay,
                 books: books.sort()

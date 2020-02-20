@@ -20,13 +20,13 @@ class BooksSpec extends AlgorithmSpec {
             List<Library> libraries = algorithm.getLibraries(data.libraries, data.days)
 
         then:
-            println score(libraries, data)
+            println score(libraries, data, filename)
 
         where:
-            data            | algorithm
-            testData[1]     | algorithms[0]
-            testData[1]     | algorithms[1]
-            testData[1]     | algorithms[2]
+            data            | algorithm     | filename
+            testData[1]     | algorithms[0] | "a_example_result.txt"
+            testData[1]     | algorithms[1] | "c_incunabula_result.txt"
+            testData[1]     | algorithms[2] | "f_libraries_of_the_world_result.txt"
     }
 
 }
