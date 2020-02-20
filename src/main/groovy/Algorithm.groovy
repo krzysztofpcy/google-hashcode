@@ -1,6 +1,6 @@
 interface Algorithm {
     
     String getName()
-    Collection<Integer> getPizzas(Collection<Integer> pizzaSlices, int maxSlices);
+    List<LibraryOutput> getLibraries(List<Library> libraries, int days);
     
 }

@@ -7,36 +7,41 @@ import static java.lang.ClassLoader.getSystemResource
 
 class AlgorithmSpec extends Specification {
     
-    static TestData loadTest(String filename) {
+    static Input loadTest(String filename) {
         Path filePath = Paths.get(getSystemResource(filename).toURI());
         Scanner scanner = new Scanner(filePath);
         
-        int maxSlices = scanner.nextInt()
-        int pizzas = scanner.nextInt()
+        int booksCount = scanner.nextInt()
+        int librariesCount = scanner.nextInt()
+        int daysToScan = scanner.nextInt()
         
-        Collection<Integer> slices = new ArrayList<>(pizzas)
-        pizzas.times { slices.add(scanner.nextInt()) }
+        List<Book> books = new ArrayList<>(booksCount)
+        booksCount.times { books.add(new Book(id: it, score: scanner.nextInt()))}
         
-        Collection<Integer> expectedPizzas = new ArrayList<>()
-        while (scanner.hasNext()) {
-            expectedPizzas.add(scanner.nextInt());
-        }
+        List<Library> libraries = new ArrayList<>(librariesCount)
+        librariesCount.times { libraries.add(loadLibrary(scanner, books)) }
         
-        return new TestData().tap {
-            it.name = filename
-            it.maxSlices = maxSlices
-            it.slices = slices
-            it.expectedPizzas = expectedPizzas
+        return new Input(libraries: libraries, days: daysToScan)
+    }
+    
+    static Library loadLibrary(Scanner scanner, List<Book> books) {
+        int booksCount = scanner.nextInt()
+        int signupDays = scanner.nextInt()
+        int booksPerDay = scanner.nextInt()
+    
+        List<Book> booksInLibrary = new ArrayList<>(booksCount)
+        booksCount.times { booksInLibrary.add(books.get(scanner.nextInt())) }
+        
+        return new Library().tap {
+            it.signupDays = signupDays
+            it.booksPerDay = booksPerDay
+            it.books = booksInLibrary
         }
     }
     
-    static class TestData {
-    
-        String name
-        int maxSlices
-        Collection<Integer> slices
-        Collection<Integer> expectedPizzas
-    
+    static int score(List<LibraryOutput> libraries) {
+        return 0
     }
+    
     
 }

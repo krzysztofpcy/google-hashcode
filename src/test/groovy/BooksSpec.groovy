@@ -1,24 +1,22 @@
 import spock.lang.Unroll
 
-class PizzaSpec extends AlgorithmSpec {
+class BooksSpec extends AlgorithmSpec {
     
     static def testData = [
-            loadTest('a_example.in'),
-            loadTest('b_small.in')
+            loadTest('a_example.txt')
     ]
     
     static def algorithms = [
-            new PizzaAlgorithmA(),
-            new PizzaAlgorithmB()
+            new AlgorithmA()
     ]
     
     @Unroll
     def '#algorithm.name - #data.name'() {
         when:
-            def pizzas = algorithm.getPizzas(data.slices, data.maxSlices)
+            def libraries = algorithm.getLibraries(data.libraries, data.days)
         
         then:
-            pizzas == data.expectedPizzas
+            score(libraries) == 0
     
         where:
             data << testData
