@@ -12,6 +12,7 @@ class AlgorithmC implements Algorithm {
         return libraries.stream()
                 .map { it.sorted() }
                 .sorted(new SimpleComparator(days: days))
+                .filter { it.books.size() > 0 }
                 .collect(Collectors.toList())
     }
     
