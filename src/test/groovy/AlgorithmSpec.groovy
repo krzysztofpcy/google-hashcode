@@ -39,7 +39,7 @@ class AlgorithmSpec extends Specification {
         }
     }
     
-    static int score(List<LibraryOutput> libraries) {
+    static int score(List<Library> libraries) {
         return 0
     }
     
