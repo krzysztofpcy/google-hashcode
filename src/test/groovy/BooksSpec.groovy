@@ -3,12 +3,15 @@ import spock.lang.Unroll
 class BooksSpec extends AlgorithmSpec {
 
     static def testData = [
-//            loadTest('a_example.txt'),
-            loadTest('c_incunabula.txt')
+            loadTest('a_example.txt'),
+            loadTest('c_incunabula.txt'),
+            loadTest('f_libraries_of_the_world.txt')
     ]
 
     static def algorithms = [
-            new AlgorithmB()
+            new AlgorithmA(),
+            new AlgorithmB(),
+            new AlgorithmC(),
     ]
 
     @Unroll
@@ -17,11 +20,13 @@ class BooksSpec extends AlgorithmSpec {
             List<Library> libraries = algorithm.getLibraries(data.libraries, data.days)
 
         then:
-        println score(libraries, data)
+            println score(libraries, data)
 
         where:
-            data << testData
-            algorithm << algorithms
+            data            | algorithm
+            testData[1]     | algorithms[0]
+            testData[1]     | algorithms[1]
+            testData[1]     | algorithms[2]
     }
 
 }
